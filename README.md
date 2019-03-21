@@ -14,10 +14,18 @@ The goal of this repository is to provide a streamlined custom migration path fo
 
 ### The migration itself
 
+Follow [the Tripal 2 to 3 Migration guide](https://tripal.readthedocs.io/en/latest/user_guide/install_tripal/upgrade_from_tripal2.html).
+
 ### After migrating
 
-* Install `tripal_manage_analyses`.
+* Install and enable [Tripal Manage Analyses](https://github.com/statonlab/tripal_manage_analyses).
   - This module will provide new chado tables for you, namely an `organism_analsyis` linker table.
+  - This module also includes gene fields, and fields to link organisms to analyses and vice versa.
+* Install and enable [Tripal HQ](https://github.com/statonlab/tripal_hq)
+  - This module Lets users submit Chado content in your site in a safe way.
+* Install and enable [field permissions](https://www.drupal.org/project/field_permissions)
+  - Use in combination with Tripal HQ to hide confusing fields (dbxref for example) from users.
+  - See [this guide on how to use and configure](https://tripal.readthedocs.io/en/latest/user_guide/content_types/field_permissions.html?).
 * Convert Drupal fields not handled by the Tripal migration to chado properties.
   - Done in `migrate_node_fields.php`.
 * Convert node-based internal-links to "future proof" Chado-based links.
