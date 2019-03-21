@@ -5,11 +5,15 @@ The goal of this repository is to provide a streamlined custom migration path fo
 
 # Upgrade Process
 
+Below is a detailed explanation of the full migration process.  I've written shell scripts to automate the process as best I can.  Some manual steps, however, are still unavoidable.   I've flagged those steps with "**manual step**".
+
 ### Prior to migrating
 
 * [Upgrading Chado](Upgrading_chado_1.2_to_1.3.md)
+  - The pre-migration script will run delete the extra views and tables.  
+  -  **Manual step**: You will still need to run the actual migration at `/admin/tripal/storage/chado/install`.
 * disable `ckeditor` and `wysiwyg_filter`
-* Manual step: create new full and filtered html filters ([read more here](https://github.com/NAL-i5K/general_issues/issues/28)).
+* **Manual step**: create new full and filtered html filters ([read more here](https://github.com/NAL-i5K/general_issues/issues/28)).
 
 ### The migration itself
 
