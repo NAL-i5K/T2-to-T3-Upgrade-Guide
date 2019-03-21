@@ -8,9 +8,8 @@ The goal of this repository is to provide a streamlined custom migration path fo
 ### Prior to migrating
 
 * [Upgrading Chado](Upgrading_chado_1.2_to_1.3.md)
-
-
-
+* disable `ckeditor` and `wysiwyg_filter`
+* Manual step: create new full and filtered html filters ([read more here](https://github.com/NAL-i5K/general_issues/issues/28)).
 
 ### The migration itself
 
@@ -41,3 +40,9 @@ The Tripal user's guide has [detailed instructions on how to configure fields](h
 
 
 Originally, I had exported my field configurations into deployable modules using the [Drupal features module](https://www.drupal.org/project/features).  However, when Tripal creates field groupings, it gives it a name with random numbers in the string.  This means that after you upgrade from Tripal 2 to Tripal 3 on your site, your field group names will be **incompatible** with mine.  You can still use Drupal features, but the starting feature must be exported from a copy of your database, or, you must delete your feature groups prior to enabling the feature module.
+
+
+Field configuration modules (DONT USE without first deleting your field groupings or renaming the field group names in the modules)
+
+* [Organism](https://github.com/NAL-i5K/tripal3_organism_layout)
+* [Analysis](https://github.com/NAL-i5K/i5k_analysis)
