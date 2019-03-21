@@ -2,10 +2,18 @@
 
 The goal of this repository is to provide a streamlined custom migration path for the i5k website from Tripal 2 to Tripal 3.  It may serve as a good starting point for other sites, but you will likely have to customize it for your own needs.  Please don't follow this guide blindly!
 
-
 # Upgrade Process
 
 Below is a detailed explanation of the full migration process.  I've written shell scripts to automate the process as best I can.  Some manual steps, however, are still unavoidable.   I've flagged those steps with "**manual step**".
+
+So to summarize:
+
+* Clone this repository somewhere inside your drupal site structure so `drush` commands will work.
+* `sh pre_migration.sh`
+* follow manual pre migration steps
+* run tripal 2 -> 3 migration via GUI
+* `sh post_migration.sh`
+* follow manual post migration steps
 
 ### Prior to migrating
 
@@ -34,9 +42,6 @@ Follow [the Tripal 2 to 3 Migration guide](https://tripal.readthedocs.io/en/late
 * Convert node-based internal-links to "future proof" Chado-based links.
   - Done in `convert_node_links_to_chado.php`.
   - Messages printed are to provide an inventory of non-analysis links.  You'll have the link and the Chado organism_id to add the link via Chado later if you desire.
-
-
-
 
 #### Configuring fields
 
