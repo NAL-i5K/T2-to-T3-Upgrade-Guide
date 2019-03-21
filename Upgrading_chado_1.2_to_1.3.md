@@ -6,6 +6,7 @@ Tripal has a GUI to run the Chado 1.2 to 1.3 migration.  However, it doesn't run
 
 # executive summary
 
+The shell script is in `/scripts/chado_upgrade.sh`.  However, you'll still want to read this section as some steps are not scriptable.
 
 * preparation of database by dropping views (see shell script below)
   - Create drop script
