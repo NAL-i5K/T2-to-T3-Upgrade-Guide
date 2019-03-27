@@ -9,7 +9,7 @@
 
   $derives_from_term = chado_get_cvterm(['name' => 'derives_from', 'cv_id' => ['name' => 'relationship']]);
   if (!$derives_from_term) {
-    print("Fatal error: couldn't get derives from term");
+    print nl2br("Fatal error: couldn't get derives from term \n");
     return;
   }
 
@@ -31,7 +31,7 @@
     $record_id = chado_get_id_from_nid('analysis', $node_string);
 
     if (!$record_id) {
-      print "Error looking up analysis for nid " . $node_string . '.  Continuing...\n';
+      print nl2br("Error looking up analysis for nid " . $node_string . '.  Continuing...\n');
       continue;
     }
 
@@ -54,7 +54,7 @@
     $entity_id = chado_get_record_entity_by_table('analysis', $record_id);
 
     if (!$entity_id) {
-      print ("Could not find entity for " . $record_id . ' while updating sourceuri for analysis ' . $subject_analysis_id . '.  Continuing...\n');
+      print nl2br("Could not find entity for " . $record_id . ' while updating sourceuri for analysis ' . $subject_analysis_id . '.  Continuing...\n');
       continue;
     }
     // Change the URI
@@ -62,6 +62,6 @@
     $match = ['analysis_id' => $subject_analysis_id];
     chado_update_record('analysis', $match, ['sourceuri' => $new_uri]);
 
-    print("Successfully updated URI, and inserted an analysis_relationship, for analysis: " . $subject_analysis_id . '\n');
+    print nl2br("Successfully updated URI, and inserted an analysis_relationship, for analysis: " . $subject_analysis_id . '\n');
 
 }
