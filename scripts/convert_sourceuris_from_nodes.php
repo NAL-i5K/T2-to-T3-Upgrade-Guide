@@ -43,7 +43,7 @@
 
     //check the record doesnt already exist
 
-    $exists = chado_select_record('analysis_relationship', $values);
+    $exists = chado_select_record('analysis_relationship', ['analysis_relationship_id'], $values);
 
     if (!$exists) {
       chado_insert_record('analysis_relationship', $values);
