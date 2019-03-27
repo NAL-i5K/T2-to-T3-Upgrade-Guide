@@ -42,6 +42,8 @@ Follow [the Tripal 2 to 3 Migration guide](https://tripal.readthedocs.io/en/late
 * Convert node-based internal-links to "future proof" Chado-based links.
   - Done in `convert_node_links_to_chado.php`.
   - Messages printed are to provide an inventory of non-analysis links.  You'll have the link and the Chado organism_id to add the link via Chado later if you desire.
+* [Convert Node links in analysis sourceuris to entities, and add the relationship to analysis_relationship](https://github.com/NAL-i5K/general_issues/issues/41)
+  - Done in `convert_sourceuris_from_nodes.php`;
 
 #### Configuring fields
 
