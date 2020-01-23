@@ -8,15 +8,25 @@
 #  - Populate newly generated panes with required fields or further organize fields into panes
 #  - Set the appropriate permissions for anonymous users to view the bundle pages (Tripal V3) - just in case
 
+####################################################################################################
 
 ###
 ### Panes
 ###
 
-# Generation
+### Generation
+
+# Organism Page
+# Get organism bundle name
+org_b_name=$(drush sql-query "select name from tripal_bundle where label = 'Organism'")
+
+# Panes to create for organism: "Other information"
+tripal_ds_create_field($field_label, $field_name, $bundle_name)
+
 
 # Populate
 
+####################################################################################################
 
 ###
 ### Permissions (Just in case)
