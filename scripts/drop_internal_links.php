@@ -7,6 +7,10 @@
  * with the 4 step program at an earlier stage. This must be tested. 
  */
 
+/**
+ * Node URLs (these are already enabled on Organism pages and are therefore redundant)
+ */
+
 # Get the bundle number for organism
     $sql = "select term_id from tripal_bundle where label='Organism'";
     $results = chado_query($sql);
@@ -19,7 +23,7 @@
     //SQL = select bio_data_#_resource_links_url from field_data_bio_data_#_resource_links where bio_data_#_resource_links_url similar to '/?node%'
     $sql = "select $organism_resource_links, entity_id, delta from $organism_resource_table where $organism_resource_links similar to '/?node%'";
 
-    echo $sql."\n";
+    //echo $sql."\n";
     $results = chado_query($sql);
 
     # Cycle through the results
@@ -31,7 +35,7 @@
         array_push($nids,array('node_id'=>$matches[0],'entity_id'=>$result->entity_id,'delta'=>$result->delta));
     }
 
-    print_r($nids);
+    // for debugging: print_r($nids);
 
 # Grab all the nids from node table where type=chado_analysis
     $sql = "select nid from node where type='chado_analysis'";
@@ -78,6 +82,24 @@
             //echo $nid . ": ".$matches_found." matches found.\n";
         }
     }
-    echo "Total matches: ".$total_matches."\n";
 
-    echo "URLs set as deleted, please remember to clear the drupal cache\n";
+    echo "Deleted all '/node/' URLs that linked to chado_analysis pages\n";
+
+/**
+ * Annotation URLs (these originally pointed to lists of annotations in the T2 days, but are now
+ * deprecated).
+ */
+
+# Get all the organism links that are like /annotation/*
+    # This one is simpler because we're just disabling ALL the /annotations/ links, not just specific ones
+    #reminder: table name  = field_data_bio_data_1_resource_links   = $organism_resource_links
+    #reminder: column name = bio_data_1_resource_links_url          = $field_data_bio_data_1_resource_links
+
+    $sql = "update $organism_resource_table set deleted=1 where $organism_resource_links similar to '/?annotation%'";
+    chado_query($sql);
+
+    echo "Deleted all '/annotation/' URLs\n";
+
+// Dropped all the internal links. Do we advise the user to clear the cache or should we do that for them?
+echo "URLs set as deleted, please remember to clear the drupal cache\n";
+
