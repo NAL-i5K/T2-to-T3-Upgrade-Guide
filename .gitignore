@@ -1,2 +1,4 @@
 drop_script.sql
+drop_indexes_script.sql
 .IDEA
+UpgradeTLDR.md
