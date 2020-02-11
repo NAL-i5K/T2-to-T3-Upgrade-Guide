@@ -77,7 +77,7 @@
         'data__image_height'=>$imagesize[1]
       ));
     }
-    
+
     // This is where we load it all into the database (field_data_data__image)
     foreach($organism_details as $org_d)
     {
@@ -87,12 +87,6 @@
     }
 
     echo $insert;
-    /*sql = "";
-    foreach ($organism_details as $org_d)
-    {
-      //insert into field_data_data__image values ('TripalEntity','bio_data_1',0,56230,56230,'und',0,133,'Anoplophora glabripennis','Anoplophora glabripennis',320,216);
-      sql .= "insert into "
-    }*/
     
     
 /**

@@ -53,6 +53,14 @@
 drush scr scripts/drop_internal_links.php
 
 
+###
+### Organism images
+###
+# Call the migrate_images.php script. Details are in that file
+
+drush scr scripts/migrate_images.php
+
+
 
 
 
