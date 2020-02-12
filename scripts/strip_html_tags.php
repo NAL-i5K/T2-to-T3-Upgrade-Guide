@@ -7,4 +7,3 @@
 # chado.organism/abbreviation
 $sql = "update chado.organism set abbreviation=regexp_replace(abbreviation, E'<[^>]*>', '', 'gi')";
 $result = chado_query($sql);
-print_r($result);
