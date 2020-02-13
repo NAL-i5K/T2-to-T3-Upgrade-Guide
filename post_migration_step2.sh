@@ -60,6 +60,13 @@ drush scr scripts/drop_internal_links.php
 
 drush scr scripts/migrate_images.php
 
+###
+### Strip HTML formatting
+###
+# Call the strip_html_tags.php script. Details are in that file.
+
+drush scr scripts/strip_html_tags.php
+
 
 
 
