@@ -42,22 +42,6 @@
     print("cvterm_id " . $cvterm_id . "\n");
 
 
-# Quick test of how to use chado_query with table alias
-    $type = 'polypeptide';
-    $sql = "SELECT count(FR.feature_relationship_id)
-        FROM {feature_relationship} FR
-            INNER JOIN {feature} F on FR.subject_id = F.feature_id
-            INNER JOIN {cvterm} CVT on CVT.cvterm_id = F.type_id
-            INNER JOIN {cvterm} RCVT on RCVT.cvterm_id = FR.type_id
-        WHERE
-            CVT.name = :type";
-    $args = array(
-        ':type' => $type,
-    );
-    $results = chado_query($sql, $args);
-    print("poly: ". $results->fetchObject()->count . "\n");
-    // It works just fine...
-
 # All together now
     $sql = "UPDATE {feature_relationship}
             SET type_id = :cvterm_id
