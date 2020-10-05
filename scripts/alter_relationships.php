@@ -28,7 +28,7 @@
     $cv_id = $results->fetchObject()->cv_id;
     print("cv_id: " . $cv_id . "\n");
 
-# Get the cvterm_id from chado.cvterm relating for 'part_of'
+# Get the cvterm_id from chado.cvterm relating for 'derives_from'
     $sql = "SELECT cvterm_id 
             FROM {cvterm}
             WHERE 
@@ -47,7 +47,7 @@
             SET type_id = :cvterm_id
             WHERE feature_relationship_id in
             (
-                SELECT FR.feature_relationship
+                SELECT FR.feature_relationship_id
                 FROM {feature_relationship} FR
                     INNER JOIN {feature} F on FR.subject_id = F.feature_id
                     INNER JOIN {cvterm} CVT on CVT.cvterm_id = F.type_id
