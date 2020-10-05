@@ -67,10 +67,12 @@ drush scr scripts/migrate_images.php
 
 drush scr scripts/strip_html_tags.php
 
+###
+### Feature relationship dropping
+###
+### We need to drop a number of feature_relationship records because
+### their associated features had been deleted without consideration
+### to foreign key constraints (circa Tripal 2).
+# Call the drop script directly. No need to generate it.
 
-
-
-
-
-
-
+#drush sql-query --file=$(pwd)/scripts/drop_feature_relationships_script.sql
