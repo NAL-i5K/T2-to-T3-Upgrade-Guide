@@ -75,4 +75,4 @@ drush scr scripts/strip_html_tags.php
 ### to foreign key constraints (circa Tripal 2).
 # Call the drop script directly. No need to generate it.
 
-#drush sql-query --file=$(pwd)/scripts/drop_feature_relationships_script.sql
+drush sql-query --file=$(pwd)/scripts/drop_feature_relationships_script.sql
