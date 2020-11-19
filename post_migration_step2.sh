@@ -76,3 +76,14 @@ drush scr scripts/strip_html_tags.php
 # Call the drop script directly. No need to generate it.
 
 drush sql-query --file=$(pwd)/scripts/drop_feature_relationships_script.sql
+
+###
+### Add Chado 1.3 constraints back in
+###
+### The standard Chado conversion that Tripal performs leaves out a
+### number of important table constraints (primary keys) that are
+### necessary for the database to remain in a consistent state (such 
+### as when a feature is deleted and its corresponding feature props
+### need to be deleted as well)
+
+drush sql-query --file=$(pwd)/scripts/add_constraints_1.3.sql
