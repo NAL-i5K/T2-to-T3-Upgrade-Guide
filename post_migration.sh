@@ -1,3 +1,6 @@
+# Populate the analysis_organism table (prior to tripal_manage_analysis)
+drush scr scripts/populate-analysis_organism.php
+
 # Go to your site's `/sites/all/modules/custom` folder first!
 git clone https://github.com/statonlab/tripal_manage_analyses.git
 drush pm-enable tripal_manage_analyses
