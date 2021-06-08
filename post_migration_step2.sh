@@ -68,3 +68,11 @@ drush sql-query --file=$(pwd)/scripts/drop_feature_relationships_script.sql
 ### need to be deleted as well)
 
 drush sql-query --file=$(pwd)/scripts/add_constraints_1.3.sql
+
+###
+### Apply a patch to provide an ID for certain elements.
+###
+### This is related to https://github.com/isdapps/i5k-tripal/issues/300
+
+file_to_patch=$(find ../../.. -name 'tripal_ds.field_group.inc')
+patch $file_to_patch -i scripts/tripal_ds-add_id.patch 

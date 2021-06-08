@@ -1,0 +1,12 @@
+diff --git a/tripal_ds/includes/tripal_ds.field_group.inc b/tripal_ds/includes/tripal_ds.field_group.inc
+index 4fd2406f..03b1a4ad 100755
+--- a/tripal_ds/includes/tripal_ds.field_group.inc
++++ b/tripal_ds/includes/tripal_ds.field_group.inc
+@@ -65,6 +65,7 @@ function tripal_ds_add_summary_field_group($bundle_name, $fields) {
+         'table_row_striping' => 0,
+         'always_show_field_label' => 0,
+         'classes' => 'group-summary-table field-group-table',
++        'id' => 'group-summary-table',
+       ],
+     ],
+   ];
