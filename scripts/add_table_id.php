@@ -24,14 +24,18 @@
     $results = chado_query($sql);
     $data = $results->fetchObject()->data;
     $us_data = unserialize($data);
-    
-    // We want to add an id value (attention: lowercase 'id') to the array
-    
-    $us_data['format_settings']['instance_settings']['id'] = 'group_summary_table';
     print_r($us_data);
+    
+// We want to add an id value (attention: lowercase 'id') to the array
+    
+    // Set the table id (for HTML id tag)
+    $us_data['format_settings']['instance_settings']['id'] = 'group_summary_table';
+    
+    // Hide the label
+    $us_data['format_settings']['instance_settings']['label_visibility'] = "1";
+    
+    // Save the configuration to the database
     $rs_data = serialize($us_data);
-    print_r($rs_data);
-
     $save = db_update('field_group')
         ->fields(array(
             'data' => $rs_data
